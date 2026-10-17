@@ -1,0 +1,18 @@
+window {
+    background-color: #0b0612;
+    border: 2px solid #a855f7;
+    font-family: "Terminess Nerd Font Mono";
+    font-size: 14px;
+}
+#input {
+    background-color: #170d24;
+    color: #e0d0ff;
+    border: none;
+    border-bottom: 2px solid #a855f7;
+    border-radius: 0;
+    padding: 6px;
+    margin: 6px;
+}
+#entry { padding: 4px 8px; color: #e0d0ff; }
+#entry:selected { background-color: #a855f7; color: #0b0612; }
+#text:selected { color: #0b0612; }
