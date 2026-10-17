@@ -1,0 +1,27 @@
+* {
+    font-family: "Terminess Nerd Font Mono";
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+window#waybar {
+    background: #0b0612;
+    color: #e0d0ff;
+    border-bottom: 2px solid #a855f7;
+}
+#workspaces button {
+    padding: 0 8px;
+    color: #6b3fa0;
+    background: transparent;
+}
+#workspaces button.active {
+    color: #0b0612;
+    background: #a855f7;
+}
+#clock, #cpu, #memory, #pulseaudio, #network, #battery {
+    padding: 0 10px;
+    color: #c084fc;
+}
+#clock { color: #7cffb2; }
+#battery.critical { color: #ff5c8a; }
