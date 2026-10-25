@@ -1,0 +1,28 @@
+# Packages from the official Arch repositories.
+# Install: ./install.sh --packages   (or: sudo pacman -S --needed $(cat packages/official.txt))
+
+# --- core rice ---
+hyprland
+waybar
+wofi
+kitty
+fastfetch
+dunst
+awww                 # wallpaper daemon (successor of swww, provides awww-daemon)
+
+# --- session / hardware integration ---
+brightnessctl
+playerctl
+pipewire
+pipewire-pulse
+wireplumber
+networkmanager       # backs the Waybar "network" module
+
+# --- fonts ---
+ttf-terminus-nerd    # "Terminess Nerd Font Mono"
+terminus-font
+
+# --- optional but recommended ---
+xdg-desktop-portal-hyprland   # screen sharing / portal dialogs
+grim                          # screenshots
+slurp                         # region selection for grim

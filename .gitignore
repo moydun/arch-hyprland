@@ -1,0 +1,17 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+\#*\#
+
+# stray backups
+*.bak
+*.save
+*.orig
+*.rej
+
+# local test homes / scratch
+/tmp/
+/.tmp/

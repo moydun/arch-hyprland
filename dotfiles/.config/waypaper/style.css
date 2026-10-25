@@ -1,0 +1,31 @@
+/* waypaper — matches the rice palette */
+
+window {
+    background-color: #0b0612;
+    color: #e0d0ff;
+}
+
+entry {
+    background-color: #170d24;
+    color: #e0d0ff;
+    border: 1px solid #a855f7;
+    border-radius: 0;
+    padding: 6px;
+}
+
+button {
+    background-color: #170d24;
+    color: #e0d0ff;
+    border: 1px solid #6b3fa0;
+    border-radius: 0;
+    padding: 4px 8px;
+}
+
+button:hover {
+    background-color: #a855f7;
+    color: #0b0612;
+}
+
+.highlighted-button {
+    border: 1px solid #7cffb2;
+}
