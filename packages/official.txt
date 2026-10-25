@@ -1,5 +1,5 @@
 # Packages from the official Arch repositories.
-# Install: ./install.sh --packages   (or: sudo pacman -S --needed $(cat packages/official.txt))
+# Install: ./install.sh --packages   (or: sudo pacman -S --needed $(grep -vE '^#|^$' packages/official.txt))
 
 # --- core rice ---
 hyprland
@@ -18,9 +18,19 @@ pipewire-pulse
 wireplumber
 networkmanager       # backs the Waybar "network" module
 
+# --- lock / idle / clipboard ---
+hyprlock
+hypridle
+cliphist
+
 # --- fonts ---
 ttf-terminus-nerd    # "Terminess Nerd Font Mono"
 terminus-font
+ttf-jetbrains-mono-nerd
+inter-font
+
+# --- theme ---
+papirus-icon-theme
 
 # --- optional but recommended ---
 xdg-desktop-portal-hyprland   # screen sharing / portal dialogs

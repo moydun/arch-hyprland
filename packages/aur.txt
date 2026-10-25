@@ -1,3 +1,6 @@
 # AUR packages. Needs an AUR helper (yay or paru).
 # Install: ./install.sh --packages
 waypaper
+wlogout
+catppuccin-gtk-theme-mocha
+bibata-cursor-theme

@@ -15,6 +15,7 @@ SRC_DIR="$REPO_DIR/dotfiles"
 TARGET="${HOME:-}"
 MODE="link"
 WITH_PACKAGES=0
+WITH_THEME=0
 DRY_RUN=0
 
 BACKUP_DIR=""
@@ -34,6 +35,7 @@ Options:
   -c, --copy         Copy files instead of symlinking them
   -l, --link         Symlink files (default)
   -p, --packages     Install packages/official.txt (pacman) and packages/aur.txt (yay/paru)
+      --theme        Apply the GTK / icon / cursor / Qt theme (run after installing them)
   -n, --dry-run      Print what would happen, change nothing
   -t, --target DIR   Install into DIR instead of $HOME (mostly for testing)
   -h, --help         Show this help
@@ -42,6 +44,7 @@ Examples:
   ./install.sh                  # symlink the configs
   ./install.sh --packages       # symlink configs + install packages
   ./install.sh --copy           # standalone copy, no symlinks
+  ./install.sh --theme          # apply GTK/icons/cursor theme
   ./install.sh -n               # dry run
 EOF
 }
@@ -172,6 +175,7 @@ main() {
       -c|--copy)      MODE="copy" ;;
       -l|--link)      MODE="link" ;;
       -p|--packages)  WITH_PACKAGES=1 ;;
+      --theme)        WITH_THEME=1 ;;
       -n|--dry-run)   DRY_RUN=1 ;;
       -t|--target)    [[ $# -ge 2 ]] || die "--target needs a directory"; TARGET="$2"; shift ;;
       -h|--help)      usage; exit 0 ;;
@@ -208,6 +212,18 @@ main() {
 
   if (( WITH_PACKAGES )); then
     install_packages
+  fi
+
+  if (( WITH_THEME )); then
+    info ""
+    info ":: theme"
+    if (( DRY_RUN )); then
+      info "  [dry-run] $REPO_DIR/scripts/apply-theme.sh"
+    elif [[ -x "$REPO_DIR/scripts/apply-theme.sh" ]]; then
+      "$REPO_DIR/scripts/apply-theme.sh"
+    else
+      info "  scripts/apply-theme.sh not found or not executable"
+    fi
   fi
 
   info ""

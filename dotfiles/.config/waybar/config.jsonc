@@ -1,15 +1,85 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 28,
-    "modules-left": ["hyprland/workspaces"],
+    "height": 38,
+    "spacing": 6,
+    "margin-top": 8,
+    "margin-bottom": 6,
+    "margin-left": 10,
+    "margin-right": 10,
+
+    "modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["cpu", "memory", "pulseaudio", "network", "battery"],
-    "hyprland/workspaces": { "format": "[{id}]" },
-    "clock": { "format": "{:%a %d %b | %H:%M}" },
-    "cpu": { "format": "CPU {usage}%" },
-    "memory": { "format": "MEM {percentage}%" },
-    "pulseaudio": { "format": "VOL {volume}%", "format-muted": "VOL MUTE" },
-    "network": { "format-wifi": "NET {essid}", "format-ethernet": "NET ETH", "format-disconnected": "NET --" },
-    "battery": { "format": "BAT {capacity}%" }
+    "modules-right": ["tray", "pulseaudio", "network", "cpu", "memory", "battery", "custom/power"],
+
+    "custom/launcher": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "wofi --show drun --show-icons --width 640 --height 420 --prompt ' '"
+    },
+
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "on-click": "activate",
+        "persistent-workspaces": { "*": 5 }
+    },
+
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 45,
+        "tooltip": false,
+        "separate-outputs": true
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%a %d %b}",
+        "tooltip-format": "<tt>{calendar}</tt>"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10,
+        "show-passive-items": true
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " muted",
+        "format-icons": ["", "", ""],
+        "scroll-step": 5,
+        "on-click": "pavucontrol"
+    },
+
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "  {ifname}",
+        "format-disconnected": "  offline",
+        "tooltip-format": "{ifname} — {ipaddr}",
+        "interval": 2
+    },
+
+    "cpu": {
+        "format": "  {usage}%",
+        "interval": 2
+    },
+
+    "memory": {
+        "format": "  {percentage}%",
+        "interval": 3
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "states": { "warning": 20, "critical": 10 }
+    },
+
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "command -v wlogout >/dev/null 2>&1 && wlogout || hyprctl dispatch exit"
+    }
 }
