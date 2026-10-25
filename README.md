@@ -139,10 +139,3 @@ wallpaper stored in `waypaper/config.ini`.
 - Dunst uses the themed `dunstrc` (rounded, purple frame, JetBrainsMono).
 - `hyprlock` blurs the wallpaper; `hypridle` locks after 5 min and turns the
   panel off after 10.
-
-## Secrets
-
-Nothing sensitive is tracked and nothing sensitive should ever be added:
-SSH keys, the n8n API env file, browser profiles, pgAdmin data and shell
-history stay out of the repo. Machine-specific shell config belongs in
-`~/.bashrc.local`, which `.bashrc` sources if present and which git ignores.
